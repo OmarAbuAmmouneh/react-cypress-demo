@@ -1,8 +1,6 @@
 import {useEffect, useState} from "react";
 import {Alert, Box} from "@mui/material";
 import {useFormik} from "formik";
-import {TextInput, PasswordInput, ButtonComponent} from "components";
-import {SignIn, signInInitialValues, signInValidationSchema} from "src/types";
 import {useNavigate} from "react-router-dom";
 import {setTokens, setUser} from "state/user";
 import Cookies from "js-cookie";
@@ -10,12 +8,16 @@ import {useSelector, useDispatch} from "react-redux";
 import {getIsAuthenticated} from "state/selectors";
 import {theme} from "theme";
 import {Person, Https} from "@mui/icons-material";
+import ButtonComponent from "components/button";
+import TextInput from "components/textinput";
+import PasswordInput from "components/passwordInput";
+import { SignIn, signInInitialValues, signInValidationSchema } from "types/signIn";
 // import {useLazyGetProfileQuery, useLoginMutation} from "data/accounts";
 // import {AccountModel} from "types/accounts";
 
 const SignInPage = () => {
-    const [signIn, {isLoading}] = useLoginMutation();
-    const [getProfile] = useLazyGetProfileQuery()
+    // const [signIn, {isLoading}] = useLoginMutation();
+    // const [getProfile] = useLazyGetProfileQuery()
     const [apiError] = useState("");
     const formik = useFormik({
         initialValues: signInInitialValues,
@@ -23,20 +25,20 @@ const SignInPage = () => {
         validateOnChange: false,
         validateOnBlur: false,
         onSubmit: async (values: SignIn) => {
-            const response = await signIn(values);
-            if ('data' in response) {
-                Cookies.set('token', response.data.accessToken);
-                Cookies.set('refreshToken', response.data.refreshToken);
-                dispatch(setTokens({
-                    refreshToken: response.data.refreshToken,
-                    accessToken: response.data.accessToken,
-                }));
-                const res = await getProfile()
-                if ('data' in res) {
-                    dispatch(setUser(res.data as AccountModel));
-                }
-                navigate("/accounts");
-            }
+            // const response = await signIn(values);
+            // if ('data' in response) {
+            //     Cookies.set('token', response.data.accessToken);
+            //     Cookies.set('refreshToken', response.data.refreshToken);
+            //     dispatch(setTokens({
+            //         refreshToken: response.data.refreshToken,
+            //         accessToken: response.data.accessToken,
+            //     }));
+            //     const res = await getProfile()
+            //     if ('data' in res) {
+            //         dispatch(setUser(res.data as AccountModel));
+            //     }
+            //     navigate("/accounts");
+            // }
         },
     });
     const navigate = useNavigate();
@@ -99,7 +101,7 @@ const SignInPage = () => {
                         label=""
                         icon={<Person/>}
                         error={errors?.email}
-                        placeholder={`${t(`signInPage.username`)}`}
+                        placeholder={'Email'}
                         required
                     />
                     <PasswordInput
@@ -110,16 +112,16 @@ const SignInPage = () => {
                             setFieldValue("password", inputValue);
                         }}
                         label=""
-                        placeholder={`${t(`signInPage.password`)}`}
+                        placeholder={'Password'}
                         error={errors?.password}
                         showIcon
                         required={true}
                     />
 
                     <ButtonComponent
-                        isLoading={isLoading}
+                        // isLoading={isLoading}
                         type="primary"
-                        title={`${t(`signInPage.signIn`)}`}
+                        title={'Login'}
                         onClick={() => handleSubmit()}
                     />
                 </Box>
