@@ -7,7 +7,7 @@ import {
     NormalDevicesStyledDrawer,
     StyledDrawer,
 } from "./styles";
-import {wholeContent} from "./Components/SideMenuData";
+import {wholeContent} from "layouts/Components/sideMenuData";
 // import {useAppDispatch} from "src/state/store";
 // import {getAlert} from 'src/state';
 import {Drawer} from './Components/Drawer'
