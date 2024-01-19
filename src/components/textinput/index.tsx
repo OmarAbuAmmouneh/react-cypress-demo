@@ -1,5 +1,5 @@
 import {Box, FormControl, InputAdornment, TextField, Typography,} from "@mui/material";
-import {theme} from "theme";
+import {theme} from "@/theme";
 
 export interface BaseInputProps{
     value:any

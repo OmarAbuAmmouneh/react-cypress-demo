@@ -1,6 +1,6 @@
 import {Navigate, Outlet, useLocation} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {RootState} from "../state/store";
+import { RootState } from "@/state/store";
 
 interface IProps{
     children?: any

@@ -8,8 +8,8 @@ import {
 } from "@mui/material";
 import { useState, MouseEvent } from "react";
 import { VisibilityOff, Visibility } from "@mui/icons-material";
-import { theme } from "theme";
-import { BaseInputProps } from "components/textinput";
+import { theme } from "@/theme";
+import { BaseInputProps } from "@/components/textinput";
 
 interface PasswordInputProps extends BaseInputProps {
     value: string

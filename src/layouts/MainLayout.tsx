@@ -7,10 +7,10 @@ import {
     NormalDevicesStyledDrawer,
     StyledDrawer,
 } from "./styles";
-import {wholeContent} from "layouts/Components/sideMenuData";
+import {wholeContent} from "@/layouts/Components/sideMenuData";
 // import {useAppDispatch} from "src/state/store";
 // import {getAlert} from 'src/state';
-import {Drawer} from './Components/Drawer'
+import {Drawer} from '@/layouts/Components/Drawer'
 
 interface IProps {
     children?: any;

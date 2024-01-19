@@ -19,7 +19,7 @@ import {
     TypographyProps,
     GridProps,
   } from "@mui/material";
-  import {theme} from '../theme'
+  import {theme} from '@/theme'
   
   export const StyledTypo = styled(Typography)<TypographyProps>(({ theme }) => ({
     fontWeight: "700",
