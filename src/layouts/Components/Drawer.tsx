@@ -6,7 +6,7 @@ import {
 } from "../styles";
 import {Box, Grid, List, Toolbar, Typography} from "@mui/material";
 import {theme} from '../../theme'
-import { wholeContent } from "./sideMenuData";
+import { wholeContent } from "layouts/Components/sideMenuData";
 
 interface IProps {
     children?: any;

@@ -1,16 +1,16 @@
 import {useMemo, useState} from "react";
 import {Outlet, useLocation, useNavigate} from "react-router-dom";
-import {Alert, CssBaseline, Grid } from "@mui/material";
+import {CssBaseline, Grid } from "@mui/material";
 import {
     Container,
     DrawerContainer,
     NormalDevicesStyledDrawer,
     StyledDrawer,
 } from "./styles";
-import {wholeContent} from "./Components/sideMenuData";
-import {useAppDispatch, useTypedSelector} from "src/state/store";
+import {wholeContent} from "./Components/SideMenuData";
+// import {useAppDispatch} from "src/state/store";
 // import {getAlert} from 'src/state';
-import {Drawer, PanelHeader} from './components'
+import {Drawer} from './Components/Drawer'
 
 interface IProps {
     children?: any;
@@ -19,7 +19,7 @@ interface IProps {
 const MainLayout = (props: IProps) => {
     // const alert = useTypedSelector(getAlert);
     const [mobileOpen, setMobileOpen] = useState(false);
-    const dispatch = useAppDispatch();
+    // const dispatch = useAppDispatch();
     let navigate = useNavigate();
     let location = useLocation();
     let selectedItem = useMemo(() => `/${location?.pathname.split('/')[1]}`, [location?.pathname]);
@@ -65,9 +65,9 @@ const MainLayout = (props: IProps) => {
                 </NormalDevicesStyledDrawer>
             </DrawerContainer>
             <Container item xs={12} md={9} lg={10}>
-                <PanelHeader
-                    handleDrawerToggle={handleDrawerToggle}/>
-                            {alert?.isOpen && <Alert severity={alert.severity}>{alert?.content}</Alert>}
+                {/* <PanelHeader
+                    handleDrawerToggle={handleDrawerToggle}/> */}
+                            {/* {alert?.isOpen && <Alert severity={alert.severity}>{alert?.content}</Alert>} */}
                 <Grid xs={12} overflow='scroll' height={'100vh'} padding={'2rem'}>
                     <Outlet />
                 </Grid>
