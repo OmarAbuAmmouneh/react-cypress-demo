@@ -3,7 +3,7 @@ import {RootState} from '../state/store';
 import {Mutex} from 'async-mutex';
 import {logout, setTokens} from '../state/user'
 import Cookies from 'js-cookie';
-import ENV from "src/env";
+import ENV from "@/env";
 
 const mutex = new Mutex();
 

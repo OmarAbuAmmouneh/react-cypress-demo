@@ -6,7 +6,7 @@ export const RequestsApi = createApi({
     baseQuery: customFetchBase,
     reducerPath: "requests",
     endpoints: (builder) => ({
-        login: builder.mutation<LoginRequest, Tokens>({
+        login: builder.mutation<Tokens, LoginRequest>({
             query: (body) => ({
                 url: `staff/signin`,
                 method: 'POST',

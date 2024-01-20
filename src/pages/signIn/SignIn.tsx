@@ -2,8 +2,8 @@ import {useEffect, useState} from "react";
 import {Alert, Box} from "@mui/material";
 import {useFormik} from "formik";
 import {useNavigate} from "react-router-dom";
-// import {setTokens, setUser} from "state/user";
-// import Cookies from "js-cookie";
+import {setTokens, setUser} from "@/state/user";
+import Cookies from "js-cookie";
 import {useSelector, useDispatch} from "react-redux";
 import {getIsAuthenticated} from "@/state/selectors";
 import {theme} from "@/theme";
@@ -12,12 +12,13 @@ import ButtonComponent from "@/components/button";
 import TextInput from "@/components/textinput";
 import PasswordInput from "@/components/passwordInput";
 import { SignIn, signInInitialValues, signInValidationSchema } from "@/types/signIn";
+import { useLoginMutation } from "@/data/RequestsApi";
+import { AccountModel } from "@/types/account";
 // import {useLazyGetProfileQuery, useLoginMutation} from "data/accounts";
 // import {AccountModel} from "types/accounts";
 
 const SignInPage = () => {
-    // const [signIn, {isLoading}] = useLoginMutation();
-    // const [getProfile] = useLazyGetProfileQuery()
+    const [signIn, signInResponse] = useLoginMutation();
     const [apiError] = useState("");
     const formik = useFormik({
         initialValues: signInInitialValues,
@@ -25,20 +26,20 @@ const SignInPage = () => {
         validateOnChange: false,
         validateOnBlur: false,
         onSubmit: async (values: SignIn) => {
-            // const response = await signIn(values);
-            // if ('data' in response) {
-            //     Cookies.set('token', response.data.accessToken);
-            //     Cookies.set('refreshToken', response.data.refreshToken);
-            //     dispatch(setTokens({
-            //         refreshToken: response.data.refreshToken,
-            //         accessToken: response.data.accessToken,
-            //     }));
-            //     const res = await getProfile()
-            //     if ('data' in res) {
-            //         dispatch(setUser(res.data as AccountModel));
-            //     }
-            //     navigate("/accounts");
-            // }
+            const response = await signIn(values);
+            if ('data' in response) {
+                Cookies.set('token', response.data.accessToken);
+                Cookies.set('refreshToken', response.data.refreshToken);
+                dispatch(setTokens({
+                    refreshToken: response.data.refreshToken,
+                    accessToken: response.data.accessToken,
+                }));
+                // const res = await getProfile()
+                // if ('data' in res) {
+                //     dispatch(setUser(res.data as AccountModel));
+                // }
+                navigate("/accounts");
+            }
         },
     });
     const navigate = useNavigate();
@@ -109,6 +110,7 @@ const SignInPage = () => {
                     />
 
                     <ButtonComponent
+                        name="signIn"
                         // isLoading={isLoading}
                         type="primary"
                         title={'Login'}

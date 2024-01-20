@@ -14,6 +14,7 @@ interface ButtonProps {
     className?:string
     fontSize?: string | number;
     circularProgressSize?: number
+    name?: string
   }
   
 const ButtonComponent = (props: ButtonProps) => {
@@ -28,11 +29,13 @@ const ButtonComponent = (props: ButtonProps) => {
         customStyle,
         className,
         fontSize,
-        circularProgressSize = 30
+        circularProgressSize = 30,
+        name
     } = props;
     const textSize = useMediaQuery(theme.breakpoints.down('sm'));
     return (
         <Button
+            name={name}
             className={className}
             style={customStyle}
             variant={type}
