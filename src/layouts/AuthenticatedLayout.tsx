@@ -14,7 +14,7 @@ const AuthenticationLayout = ({ pathname }: IProps) => {
 			container
 			item
             height='100vh'
-            sx={{background: theme.palette.background.paper}}
+			width={'100vw'}
 			xs={12}>
 			<Outlet />
 		</Grid>

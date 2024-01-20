@@ -42,7 +42,6 @@ const SignInPage = () => {
         },
     });
     const navigate = useNavigate();
-    
     const dispatch = useDispatch();
     const isAuthenticated = useSelector(getIsAuthenticated);
 
@@ -74,16 +73,7 @@ const SignInPage = () => {
                 }}>
                 {apiError && <Alert severity='error'>{apiError}</Alert>}
                 <Box sx={{display: "flex", justifyContent: "center", width: "100%", m: 1}}>
-                    <Box
-                        component="img"
-                        sx={{
-                            objectFit: "contain",
-                            width: "100%",
-                            height: "100px",
-                        }}
-                        alt="jameerli"
-                        src={"/logo.svg"}
-                    />
+                    <h1>Login</h1>
                 </Box>
                 <Box
                     sx={{

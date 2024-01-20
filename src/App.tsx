@@ -6,18 +6,15 @@ import store from "@/state/store";
 import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
-
-
-	return (
-		<Provider store={store}>
-			<ThemeProvider theme={theme}>
-			<BrowserRouter>
-
-					<AppLoader />
-			</BrowserRouter>
-			</ThemeProvider>
-		</Provider>
-	);
+  return (
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <AppLoader />
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
+  );
 };
 
 export default App;
