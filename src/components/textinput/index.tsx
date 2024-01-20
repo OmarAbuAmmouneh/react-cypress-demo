@@ -76,6 +76,7 @@ const TextInput = (props: TextInputProps) => {
             )}
             <Box>
                 <TextField
+                    
                     disabled={isDisabled}
                     error={Boolean(error) || styledError}
                     type={type ?? 'text'}
