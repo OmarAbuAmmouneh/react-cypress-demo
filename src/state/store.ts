@@ -2,17 +2,20 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import UserReducer from './user';
 
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
+import { RequestsApi } from '@/data/RequestsApi';
 
 
 const reducers = combineReducers({
         user: UserReducer,
-})
-;
+        [RequestsApi.reducerPath]: RequestsApi.reducer,
+
+});
 
 const Store = configureStore({
     reducer: reducers,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({}).concat([
+                RequestsApi.middleware
         ]),
 })
 

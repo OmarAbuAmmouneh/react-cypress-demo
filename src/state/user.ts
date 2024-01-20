@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import Cookies from 'js-cookie';
-import { AccountModel, Role, Tokens } from 'types/account';
+import { AccountModel, Role, Tokens } from '@/types/account';
 
 export interface UserState {
     isAuthenticated?: boolean
