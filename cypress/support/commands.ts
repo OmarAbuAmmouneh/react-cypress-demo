@@ -46,7 +46,7 @@ declare namespace Cypress {
 
 Cypress.Commands.add('signIn', () => {    
     cy.visit("http://localhost:3000"); // replace with the actual path to your SignInPage
-      it("should type into email and password inputs", () => {
+      // it("should type into email and password inputs", () => {
         const validCredentials = {
           baseUrl: Cypress.env("baseUrl"),
           username: Cypress.env("username"),
@@ -92,7 +92,7 @@ Cypress.Commands.add('signIn', () => {
           expect(responseBody).to.have.property("refreshToken").that.is.a("string");
           cy.setCookie('accessToken', interception.response.body.jwt)    
         });
-      })
+      // })
     })
   
   

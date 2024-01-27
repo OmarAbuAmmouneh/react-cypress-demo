@@ -11,7 +11,7 @@ export const StyledSearchText = styled(Typography)(() => ({
 }));
 
 export const StyledTableHeader = styled(Typography)(() => ({
-    fontWeight: 'bold', fontSize: '16px', color: '#C98B5A', lineHeight: '18.75px'
+    fontWeight: 'bold', fontSize: '16px', color: 'black', lineHeight: '18.75px'
 }));
 
 export const StyledTableCell = styled(Typography)(() => ({
