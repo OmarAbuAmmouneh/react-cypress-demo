@@ -4,8 +4,8 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 export const wholeContent = {
     main: [
         {id: 2, label: "Promo codes", link: '/promoCodes', icon: <ArticleRounded/>},
-        {id: 3, label: "Promo codes", link: '/promoCodes', icon: <PeopleAltIcon/>},
-        {id: 4, label: "Promo codes", link: '/promoCodes', icon: <ApartmentIcon/>},
+        {id: 3, label: "Promo codes", link: '/promoCodes1', icon: <PeopleAltIcon/>},
+        {id: 4, label: "Promo codes", link: '/promoCodes2', icon: <ApartmentIcon/>},
     ],
     secondary: [
         // {id: 10, label: "logout", link: '/', icon: <LogoutOutlined/>},

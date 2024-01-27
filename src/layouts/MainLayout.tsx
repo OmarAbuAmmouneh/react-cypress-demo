@@ -41,8 +41,8 @@ const MainLayout = (props: IProps) => {
             <DrawerContainer
                 item
                 xs={4}
-                lg={2}
-                md={3}>
+                lg={8}
+                md={8}>
                 <StyledDrawer
                     variant="temporary"
                     open={mobileOpen}
