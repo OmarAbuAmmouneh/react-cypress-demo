@@ -51,4 +51,20 @@ describe("Promocodes Page", () => {
     cy.get('button[name="clear"]').click();
     cy.get('input[name="searchText"]').should("be.empty");
   });
+
+  it("Pagination", () => {
+    const validCredentials = {
+      baseUrl: Cypress.env("baseUrl"),
+    };
+    cy.get('button[title="الانتقال إلى الصفحة التالية"]').click();
+    // Intercept the GET API call
+    cy.intercept("GET", `${validCredentials.baseUrl}/promoCodes?*`).as(
+      "getPromoCodes"
+    );
+    // Wait for the GET API call to complete
+    cy.wait("@getPromoCodes").then((interception) => {
+        const queryParams = interception.request.url.split('?')[1];
+        expect(queryParams).to.include('offset=25');
+    });
+  });
 });
