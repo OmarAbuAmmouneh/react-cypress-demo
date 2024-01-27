@@ -33,7 +33,7 @@ const PromoCodesSearch = ({ formState, handleClear, handleChange }: IProps) => {
       <Grid container item justifyContent={"flex-start"}>
         <Grid item md={3} style={{ margin: "1rem" }}>
           <TextInput
-            value={formState.fullNameEn}
+            value={formState.searchText}
             onChange={handleChange}
             label={"searchText"}
             name={"searchText"}
@@ -41,7 +41,7 @@ const PromoCodesSearch = ({ formState, handleClear, handleChange }: IProps) => {
         </Grid>
       </Grid>
       <Grid container item justifyContent={"flex-end"}>
-        <ButtonComponent type="primary" title={"clear"} onClick={handleClear} />
+        <ButtonComponent name="clear" type="primary" title={"clear"} onClick={handleClear} />
       </Grid>
     </StyledSearchBox>
   );

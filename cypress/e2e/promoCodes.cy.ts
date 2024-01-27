@@ -1,11 +1,11 @@
 // cypress/integration/promocodes.spec.js
 
 describe("Promocodes Page", () => {
-  before(() => {
-    // Run the signIn command before the test
-    cy.signIn();
-  });
+//   before(() => {
+//     // Run the signIn command before the test
+//   });
   beforeEach(() => {
+    cy.signIn();
     cy.visit("http://localhost:3000/promocodes");
   });
   it("should call a certain GET API", () => {
@@ -30,7 +30,7 @@ describe("Promocodes Page", () => {
       // Add more assertions based on the response, if needed
     });
   });
-  it.only("Search Promocodes", () => {
+  it("Search Promocodes", () => {
     const validCredentials = {
       baseUrl: Cypress.env("baseUrl"),
     };
@@ -47,5 +47,12 @@ describe("Promocodes Page", () => {
       });
       // Add more assertions based on the response, if needed
     });
+  });
+
+  it("Clear search", () => {
+    cy.get('input[name="searchText"]').type('123');
+    cy.get('button[name="clear"]').click();
+
+    cy.get('input[name="searchText"]').should('be.empty');
   });
 });
