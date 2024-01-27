@@ -1,6 +1,7 @@
 import {createApi} from "@reduxjs/toolkit/query/react";
 import customFetchBase from "./middleware";
 import { LoginRequest, Tokens } from "@/types/account";
+import { PromoCodesSearchModel, PromoCodesSearchResponseModel } from "@/types/promoCodes";
 
 export const RequestsApi = createApi({
     baseQuery: customFetchBase,
@@ -13,10 +14,18 @@ export const RequestsApi = createApi({
                 body: body
             })
         }),
+        searchPromoCodes: builder.query<PromoCodesSearchResponseModel, PromoCodesSearchModel>({
+            query: (params) => ({
+                url: `promoCodes`,
+                method: 'GET',
+                params: params
+            })
+        }),
     })
 });
 
 export const
     {
+        useSearchPromoCodesQuery,
         useLoginMutation,
     } = RequestsApi;

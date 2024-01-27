@@ -7,11 +7,7 @@ const Component = () => {
         <Routes>
             <Route element={<PrivateProtection/>}>
                 <Route element={<MainLayout/>}>
-                    {/*<Route path={'/logs'} element={<Logs/>}/>*/}
-                    {/*<Route path={'/logs/:id'} element={<LogDisplay/>}/>*/}
-                    <Route path={'/weights'} element={<></>}/>
-                    <Route path={'/accounts'} element={<></>}/>
-                    <Route path={'/smeLoan'} element={<></>}/>
+                    <Route path={'/promoCodes'} element={<></>}/>
                 </Route>
             </Route>
         </Routes>
