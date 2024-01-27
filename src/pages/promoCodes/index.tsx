@@ -7,7 +7,7 @@ const initialValue = {
     offset: 0,
     searchText: '',
 }
-const Customers = () => {
+const PromoCodes = () => {
     const [formState, setFormState] = useState(initialValue);
     const defferedSearchText = useDeferredValue(formState.searchText)
 
@@ -35,4 +35,4 @@ const Customers = () => {
     );
 }
 
-export default Customers;
+export default PromoCodes;

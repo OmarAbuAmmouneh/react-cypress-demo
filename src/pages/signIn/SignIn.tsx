@@ -38,7 +38,7 @@ const SignInPage = () => {
                 // if ('data' in res) {
                 //     dispatch(setUser(res.data as AccountModel));
                 // }
-                navigate("/accounts");
+                navigate("/promoCodes");
             }
         },
     });
