@@ -10,13 +10,12 @@ const mutex = new Mutex();
 const baseQuery = fetchBaseQuery({
     baseUrl: ENV.API_BASE_URL,
     prepareHeaders: async (headers) => {
-        const token = await Cookies.get('token');
+        const token = await Cookies.get('accessToken');
         if (token) {
             headers.set('authorization', `Bearer ${token}`);
             return headers;
         } else {
             headers.set('authorization', `Basic bW9iaWxlX2FwcDoxNdM0NTY=`);
-
         }
         return headers;
     },

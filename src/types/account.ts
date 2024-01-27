@@ -42,6 +42,11 @@ export interface Tokens {
     refreshToken: string;
 }
 
+export interface SignInResponse {
+    jwt: string;
+    refreshToken: string;
+}
+
 export interface LoginRequest {
     email: string;
     password: string;

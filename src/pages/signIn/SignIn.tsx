@@ -28,11 +28,11 @@ const SignInPage = () => {
         onSubmit: async (values: SignIn) => {
             const response = await signIn(values);
             if ('data' in response) {
-                Cookies.set('token', response.data.accessToken);
+                Cookies.set('accessToken', response.data.jwt);
                 Cookies.set('refreshToken', response.data.refreshToken);
                 dispatch(setTokens({
                     refreshToken: response.data.refreshToken,
-                    accessToken: response.data.accessToken,
+                    accessToken: response.data.jwt,
                 }));
                 // const res = await getProfile()
                 // if ('data' in res) {
