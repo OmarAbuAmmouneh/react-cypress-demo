@@ -1,4 +1,4 @@
-import {styled, Grid, Typography} from '@mui/material';
+import {styled, Grid, Typography, Paper} from '@mui/material';
 
 export const StyledSearchBoxHeader = styled(Grid)(() => ({
     display: 'flex', flexDirection: 'row'
@@ -29,3 +29,13 @@ export const viewButton = {
     width: '0.6rem',
     height: '2.5rem'
 }
+
+export const StyledSearchBox = styled(Paper)(({ theme }) => ({
+    padding: "1rem",
+    display: "flex",
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    marginTop: '1rem'
+
+}));

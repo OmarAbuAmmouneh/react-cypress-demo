@@ -1,6 +1,7 @@
 import { useSearchPromoCodesQuery } from "@/data/RequestsApi";
-import React, { useDeferredValue, useState } from "react";
+import { useDeferredValue, useState } from "react";
 import PromoCodesTable from "./promoCodesTable";
+import PromoCodesSearch from "./promoCodesSearch";
 
 const initialValue = {
   limit: 25,
@@ -24,11 +25,11 @@ const PromoCodes = () => {
   };
   return (
     <>
-      {/* <CustomersSearch
+      <PromoCodesSearch
                 formState={formState}
                 handleChange={handleChange}
                 handleClear={handleClear}
-            /> */}
+            />
       <PromoCodesTable
         setState={(e: typeof initialValue) => setFormState(e)}
         state={formState}
