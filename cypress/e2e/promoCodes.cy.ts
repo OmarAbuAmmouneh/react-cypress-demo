@@ -1,9 +1,6 @@
 // cypress/integration/promocodes.spec.js
 
 describe("Promocodes Page", () => {
-//   before(() => {
-//     // Run the signIn command before the test
-//   });
   beforeEach(() => {
     cy.signIn();
     cy.visit("http://localhost:3000/promocodes");
@@ -34,7 +31,7 @@ describe("Promocodes Page", () => {
     const validCredentials = {
       baseUrl: Cypress.env("baseUrl"),
     };
-    cy.get('input[name="searchText"]').type('123');
+    cy.get('input[name="searchText"]').type("123");
     // Intercept the GET API call
     cy.intercept("GET", `${validCredentials.baseUrl}/promoCodes?*`).as(
       "getPromoCodes"
@@ -50,9 +47,8 @@ describe("Promocodes Page", () => {
   });
 
   it("Clear search", () => {
-    cy.get('input[name="searchText"]').type('123');
+    cy.get('input[name="searchText"]').type("123");
     cy.get('button[name="clear"]').click();
-
-    cy.get('input[name="searchText"]').should('be.empty');
+    cy.get('input[name="searchText"]').should("be.empty");
   });
 });

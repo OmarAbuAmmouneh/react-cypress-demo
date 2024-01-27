@@ -93,6 +93,6 @@ Cypress.Commands.add('signIn', () => {
           cy.setCookie('accessToken', interception.response.body.jwt)    
         });
       // })
-    })
+    })    
   
   
